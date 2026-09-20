@@ -1,4 +1,6 @@
+"use client";
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 import { LayoutDashboard, Package, Grid3X3, Building2, Store, ShoppingCart, FileBarChart, Settings } from "lucide-react";
 
 const navItems = [
@@ -13,6 +15,7 @@ const navItems = [
 ];
 
 export default function Sidebar() {
+  const pathname = usePathname();
   return (
     <aside className="fixed top-0 left-0 h-screen w-64 bg-[#1a1b2f] text-white flex flex-col z-50">
       <div className="p-6 border-b border-white/5">
@@ -32,7 +35,7 @@ export default function Sidebar() {
         <div className="text-[10px] uppercase tracking-wider text-gray-500 font-semibold mb-2 px-3">Distributor Portal</div>
         {navItems.map((item) => {
           const Icon = item.icon;
-          const isActive = item.href === "/admin";
+          const isActive = item.href === "/admin" ? pathname === "/admin" : (pathname === item.href || pathname?.startsWith(item.href + "/"));
           return (
             <Link key={item.label} href={item.href}
               className={`flex items-center gap-3 px-3 py-2.5 rounded-lg text-sm transition-colors ${

@@ -122,8 +122,7 @@ export default function AdminDashboard() {
               <th className="px-6 py-3">Shop Name</th>
               <th className="px-6 py-3">City</th>
               <th className="px-6 py-3">Date</th>
-              <th className="px-6
- py-3">Total Amount</th>
+              <th className="px-6 py-3">Total Amount</th>
               <th className="px-6 py-3">Status</th>
               <th className="px-6 py-3">Action</th>
             </tr>

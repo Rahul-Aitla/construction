@@ -1,4 +1,4 @@
-import { ShieldCheck, Wifi, Building2, User } from "lucide-react";
+import { ShieldCheck, User } from "lucide-react";
 
 export default function AdminHeader() {
   return (
