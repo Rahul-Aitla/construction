@@ -32,7 +32,7 @@ export default function AdminHeader({ onMenuClick }: { onMenuClick?: () => void 
             <ShieldCheck size={20} className="text-white" />
           </div>
           <div>
-            <h1 className="font-extrabold text-xl leading-none text-[#1a1b2f] tracking-tight">BuildPro</h1>
+            <h1 className="font-extrabold text-xl leading-none text-[#1a1b2f] tracking-tight">Sunglobalimpex</h1>
             <div className="flex items-center gap-2 mt-0.5">
               <span className="text-[10px] bg-[#1a1b2f] text-white px-1.5 py-0.5 rounded font-semibold">DISTRIBUTOR</span>
               <span className="text-xs text-gray-500 hidden sm:inline">Wholesale Materials & Supplies</span>

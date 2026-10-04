@@ -1,6 +1,6 @@
-# Build Plan — BuildPro B2B Distributor Admin Portal
+# Build Plan — Sunglobalimpex B2B Distributor Admin Portal
 
-Reference Images: BuildPro Distributor Portal (3 screenshots)
+Reference Images: Sunglobalimpex Distributor Portal (3 screenshots)
 Theme: Dark sidebar (#1a1a2e / near-black), green accent (#4CAF50), white cards on light gray bg.
 
 ---
@@ -34,4 +34,4 @@ Theme: Dark sidebar (#1a1a2e / near-black), green accent (#4CAF50), white cards 
 - Card BG: `#ffffff`
 - Main BG: `#f6f7fa` (light gray)
 - Font: Geist (clean sans-serif)
-- Logo: BuildPro + DISTRIBUTOR label
+- Logo: Sunglobalimpex + DISTRIBUTOR label

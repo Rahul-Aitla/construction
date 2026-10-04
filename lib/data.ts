@@ -95,9 +95,9 @@ export const seedProducts: Product[] = [
 ];
 
 export const defaultSettings: PortalSettings = {
-  businessName: "BuildPro Wholesale Distribution Ltd",
+  businessName: "Sunglobalimpex Wholesale Distribution Ltd",
   gstin: "27AABCB5678K1Z2",
-  email: "admin@buildpro.in",
+  email: "admin@sunglobalimpex.com",
   phone: "+91 90000 12345",
   warehouseAddress: "National Distribution Center, Bhiwandi, Maharashtra 421302",
   deliveryCharge: 500,

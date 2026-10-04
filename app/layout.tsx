@@ -13,7 +13,7 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "BuildPro Distributor Portal",
+  title: "Sunglobalimpex Distributor Portal",
   description: "Wholesale Construction & Interior Materials Distribution Network",
 };
 

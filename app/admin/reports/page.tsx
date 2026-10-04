@@ -39,7 +39,7 @@ export default function ReportsPage() {
     const url = URL.createObjectURL(blob);
     const a = document.createElement("a");
     a.href = url;
-    a.download = `buildpro-wholesale-report-${new Date().toISOString().slice(0, 10)}.csv`;
+    a.download = `sunglobalimpex-wholesale-report-${new Date().toISOString().slice(0, 10)}.csv`;
     a.click();
     URL.revokeObjectURL(url);
     addToast("Report Exported", "Wholesale Sales Report CSV exported successfully.");

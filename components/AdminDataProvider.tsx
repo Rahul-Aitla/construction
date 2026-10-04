@@ -34,11 +34,11 @@ interface PersistedData {
 const AdminDataContext = createContext<AdminData | null>(null);
 
 const STORAGE_KEYS: Record<keyof PersistedData, string> = {
-  products: "buildpro_products",
-  categories: "buildpro_categories",
-  shops: "buildpro_shops",
-  orders: "buildpro_orders",
-  settings: "buildpro_settings",
+  products: "sunglobalimpex_products",
+  categories: "sunglobalimpex_categories",
+  shops: "sunglobalimpex_shops",
+  orders: "sunglobalimpex_orders",
+  settings: "sunglobalimpex_settings",
 };
 
 const seedData: PersistedData = {

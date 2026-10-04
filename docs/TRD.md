@@ -1,6 +1,6 @@
 # Technical Requirements Document (TRD)
 
-## Project: BuildPro B2B Distributor Admin Portal
+## Project: Sunglobalimpex B2B Distributor Admin Portal
 Tech Stack: Next.js 16.3.5, React 19.2.8, Tailwind CSS v4, TypeScript 5
 
 ---
@@ -37,11 +37,11 @@ components/
 
 ### AdminHeader (`components/AdminHeader.tsx`)
 - Dark top strip: `h-10 bg-[#1a1b2f]` with "B2B VERIFIED DEALER PORTAL" green pill (`rounded-full bg-[#4CAF50]/20 text-[#4CAF50]`), subtitle text.
-- Main header row: white/light bg, logo area (`BuildPro` + green icon + DISTRIBUTOR tag + subtitle), server status (`flex items-center gap-2` with green dot), right buttons (`Admin Panel` green button, `Shop User View` outlined).
+- Main header row: white/light bg, logo area (`Sunglobalimpex` + green icon + DISTRIBUTOR tag + subtitle), server status (`flex items-center gap-2` with green dot), right buttons (`Admin Panel` green button, `Shop User View` outlined).
 
 ### Sidebar (`components/Sidebar.tsx`)
 - Fixed left, `w-64`, `bg-[#1a1b2f]`, full height.
-- Logo area at top: green square icon + "BuildPro" bold + subtitle.
+- Logo area at top: green square icon + "Sunglobalimpex" bold + subtitle.
 - Nav links: `flex items-center gap-3 px-4 py-3 rounded-lg` with icon. Active: green left border + green text + green bg tint.
 - Counts: small gray pill with number (`Products: 14`, `Orders: 1` with orange bg).
 - Bottom card: `bg-[#23233a] rounded-xl p-4` with "ACTIVE NETWORK" title, two rows (6 Cities, 8 Shops) with small icons.

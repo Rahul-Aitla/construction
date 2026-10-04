@@ -34,7 +34,7 @@ export default function Sidebar({ open = false, onClose }: { open?: boolean; onC
               <Package size={20} className="text-white" />
             </div>
             <div className="flex-1">
-              <h2 className="font-bold text-lg leading-tight">BuildPro</h2>
+              <h2 className="font-bold text-lg leading-tight">Sunglobalimpex</h2>
               <p className="text-xs text-gray-400">DISTRIBUTOR</p>
             </div>
             {onClose && (

@@ -1,13 +1,13 @@
 # Product Requirements Document (PRD)
 
-## Project: BuildPro B2B Distributor Admin Portal
+## Project: Sunglobalimpex B2B Distributor Admin Portal
 Reference: Image 1, Image 2, Image 3 (provided screenshots)
 Theme: Dark sidebar with green accents, white cards, light gray background.
 
 ---
 
 ## 1. Overview
-Build an admin dashboard that exactly matches the BuildPro Distributor Portal screenshots. Dark left sidebar with green logo, stat cards showing INR values, sales trend chart, product listings, and wholesale orders table.
+Build an admin dashboard that exactly matches the Sunglobalimpex Distributor Portal screenshots. Dark left sidebar with green logo, stat cards showing INR values, sales trend chart, product listings, and wholesale orders table.
 
 ---
 
@@ -25,7 +25,7 @@ Build an admin dashboard that exactly matches the BuildPro Distributor Portal sc
 - Right buttons: "Shop User View" and "Admin Panel" (green button)
 
 ### 3.2 Header Area
-- Logo: "BuildPro" + green icon, "DISTRIBUTOR" label, subtitle "Wholesale Materials & Supplies"
+- Logo: "Sunglobalimpex" + green icon, "DISTRIBUTOR" label, subtitle "Wholesale Materials & Supplies"
 - Right status: Green dot "Distributor Server Live", "Admin HQ", "National Distribution Center"
 
 ### 3.3 Sidebar (Dark)
