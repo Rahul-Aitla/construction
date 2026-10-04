@@ -1,10 +1,11 @@
-import { ShieldCheck, User } from "lucide-react";
+"use client";
+import { Menu, ShieldCheck, User } from "lucide-react";
 
-export default function AdminHeader() {
+export default function AdminHeader({ onMenuClick }: { onMenuClick?: () => void }) {
   return (
     <header className="sticky top-0 z-40 bg-white/80 backdrop-blur-md border-b border-gray-200/60">
       {/* Top Banner */}
-      <div className="bg-[#1a1b2f] h-10 flex items-center px-6 justify-between text-xs">
+      <div className="bg-[#1a1b2f] h-10 flex items-center px-4 sm:px-6 justify-between text-xs">
         <div className="flex items-center gap-3 text-gray-300">
           <span className="inline-flex items-center gap-1.5 bg-[#4CAF50]/20 text-[#4CAF50] px-2.5 py-0.5 rounded-full font-semibold">
             <ShieldCheck size={12} /> B2B VERIFIED DEALER PORTAL
@@ -20,8 +21,13 @@ export default function AdminHeader() {
       </div>
 
       {/* Main Header */}
-      <div className="h-16 px-6 flex items-center justify-between bg-white/70">
+      <div className="h-16 px-4 sm:px-6 flex items-center justify-between bg-white/70">
         <div className="flex items-center gap-3">
+          {onMenuClick && (
+            <button onClick={onMenuClick} className="lg:hidden p-2 -ml-2 text-gray-600 hover:bg-gray-100 rounded-lg transition-colors" aria-label="Open menu">
+              <Menu size={20} />
+            </button>
+          )}
           <div className="w-10 h-10 rounded-lg bg-[#4CAF50] flex items-center justify-center shadow-lg shadow-[#4CAF50]/20">
             <ShieldCheck size={20} className="text-white" />
           </div>
@@ -29,14 +35,14 @@ export default function AdminHeader() {
             <h1 className="font-extrabold text-xl leading-none text-[#1a1b2f] tracking-tight">BuildPro</h1>
             <div className="flex items-center gap-2 mt-0.5">
               <span className="text-[10px] bg-[#1a1b2f] text-white px-1.5 py-0.5 rounded font-semibold">DISTRIBUTOR</span>
-              <span className="text-xs text-gray-500">Wholesale Materials & Supplies</span>
+              <span className="text-xs text-gray-500 hidden sm:inline">Wholesale Materials & Supplies</span>
             </div>
           </div>
         </div>
         <div className="flex items-center gap-6 text-sm">
           <div className="flex items-center gap-2 text-gray-600">
             <span className="w-2 h-2 rounded-full bg-[#4CAF50] animate-pulse" />
-            <span className="font-medium">Distributor Server Live</span>
+            <span className="font-medium hidden sm:inline">Distributor Server Live</span>
           </div>
           <div className="text-right hidden sm:block">
             <div className="font-bold text-[#1a1b2f]">Admin HQ</div>
