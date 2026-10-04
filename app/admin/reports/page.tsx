@@ -2,9 +2,7 @@
 import { Download, TrendingUp, ShoppingCart, Receipt, Store } from "lucide-react";
 import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer, PieChart, Pie, Cell, Legend } from "recharts";
 import { useAdminData } from "@/components/AdminDataProvider";
-
-const inr = (n: number) => `₹${n.toLocaleString("en-IN")}`;
-const inrShort = (n: number) => (n >= 100000 ? `₹${(n / 100000).toFixed(1)}L` : `₹${(n / 1000).toFixed(0)}K`);
+import { inr, inrShort } from "@/lib/format";
 const PIE_COLORS = ["#4CAF50", "#2196F3", "#FF9800", "#9C27B0", "#F44336", "#00BCD4", "#795548", "#607D8B", "#E91E63", "#3F51B5"];
 
 export default function ReportsPage() {

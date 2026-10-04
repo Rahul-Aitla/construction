@@ -1,12 +1,12 @@
 "use client";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { LayoutDashboard, Package, Grid3X3, Building2, Store, ShoppingCart, FileBarChart, Settings, X } from "lucide-react";
+import { LayoutDashboard, Package, Grid3X3, Building2, Store, ShoppingCart, Wallet, FileBarChart, Settings, X } from "lucide-react";
 import { useAdminData } from "./AdminDataProvider";
 
 export default function Sidebar({ open = false, onClose }: { open?: boolean; onClose?: () => void }) {
   const pathname = usePathname();
-  const { products, cities, shops, orders } = useAdminData();
+  const { products, cities, shops, orders, expenses } = useAdminData();
   const pendingCount = orders.filter((o) => o.status === "Pending").length;
   const navItems = [
     { label: "Dashboard", href: "/admin", icon: LayoutDashboard, count: null as number | null },
@@ -15,6 +15,7 @@ export default function Sidebar({ open = false, onClose }: { open?: boolean; onC
     { label: "Cities", href: "/admin/cities", icon: Building2, count: cities.length },
     { label: "Shops", href: "/admin/shops", icon: Store, count: shops.length },
     { label: "Orders", href: "/admin/orders", icon: ShoppingCart, count: pendingCount },
+    { label: "Expenses", href: "/admin/expenses", icon: Wallet, count: expenses.length },
     { label: "Reports", href: "/admin/reports", icon: FileBarChart, count: null },
     { label: "Settings", href: "/admin/settings", icon: Settings, count: null },
   ];

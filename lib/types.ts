@@ -58,6 +58,7 @@ export interface OrderItem {
 }
 
 export type OrderStatus = "Pending" | "Confirmed" | "Delivered" | "Cancelled";
+export type PaidStatus = "Paid" | "Unpaid";
 
 export interface Order {
   id: string;
@@ -75,8 +76,20 @@ export interface Order {
   grandTotal: number;
   paymentMethod: string;
   status: OrderStatus;
+  paidStatus: PaidStatus;
+  dueDate?: string;
   createdAt: string;
   estimatedDeliveryDate: string;
+  notes?: string;
+}
+
+export interface Expense {
+  id: string;
+  date: string;
+  category: string;
+  vendor: string;
+  amount: number;
+  paymentMode: string;
   notes?: string;
 }
 

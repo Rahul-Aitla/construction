@@ -1,7 +1,7 @@
 "use client";
 import { createContext, useContext, useEffect, useState } from "react";
-import type { Category, City, Order, OrderStatus, PortalSettings, Product, Shop, Toast } from "@/lib/types";
-import { seedCategories, seedCities, seedOrders, seedProducts, seedShops, defaultSettings } from "@/lib/data";
+import type { Category, City, Expense, Order, OrderStatus, PortalSettings, Product, Shop, Toast } from "@/lib/types";
+import { seedCategories, seedCities, seedExpenses, seedOrders, seedProducts, seedShops, defaultSettings } from "@/lib/data";
 
 interface AdminData {
   products: Product[];
@@ -9,6 +9,7 @@ interface AdminData {
   cities: City[];
   shops: Shop[];
   orders: Order[];
+  expenses: Expense[];
   settings: PortalSettings;
   toasts: Toast[];
   addProduct: (p: Product) => void;
@@ -17,7 +18,11 @@ interface AdminData {
   addCategory: (c: Category) => void;
   deleteCategory: (id: string) => void;
   updateOrderStatus: (id: string, status: OrderStatus) => void;
+  markOrderPaid: (id: string) => void;
   updateShopDetails: (s: Shop) => void;
+  addExpense: (e: Expense) => void;
+  updateExpense: (e: Expense) => void;
+  deleteExpense: (id: string) => void;
   saveSettings: (s: PortalSettings) => void;
   addToast: (title: string, message?: string, variant?: Toast["variant"]) => void;
   removeToast: (id: number) => void;
@@ -28,6 +33,7 @@ interface PersistedData {
   categories: Category[];
   shops: Shop[];
   orders: Order[];
+  expenses: Expense[];
   settings: PortalSettings;
 }
 
@@ -38,6 +44,7 @@ const STORAGE_KEYS: Record<keyof PersistedData, string> = {
   categories: "sunglobalimpex_categories",
   shops: "sunglobalimpex_shops",
   orders: "sunglobalimpex_orders",
+  expenses: "sunglobalimpex_expenses",
   settings: "sunglobalimpex_settings",
 };
 
@@ -46,6 +53,7 @@ const seedData: PersistedData = {
   categories: seedCategories,
   shops: seedShops,
   orders: seedOrders,
+  expenses: seedExpenses,
   settings: defaultSettings,
 };
 
@@ -105,7 +113,11 @@ export default function AdminDataProvider({ children }: { children: React.ReactN
     addCategory: (c) => patch("categories", (prev) => [...prev, c]),
     deleteCategory: (id) => patch("categories", (prev) => prev.filter((x) => x.id !== id)),
     updateOrderStatus: (id, status) => patch("orders", (prev) => prev.map((o) => (o.id === id ? { ...o, status } : o))),
+    markOrderPaid: (id) => patch("orders", (prev) => prev.map((o) => (o.id === id ? { ...o, paidStatus: "Paid" as const } : o))),
     updateShopDetails: (s) => patch("shops", (prev) => prev.map((x) => (x.id === s.id ? s : x))),
+    addExpense: (e) => patch("expenses", (prev) => [...prev, e]),
+    updateExpense: (e) => patch("expenses", (prev) => prev.map((x) => (x.id === e.id ? e : x))),
+    deleteExpense: (id) => patch("expenses", (prev) => prev.filter((x) => x.id !== id)),
     saveSettings: (s) => patch("settings", () => s),
     addToast,
     removeToast: (id) => setToasts((t) => t.filter((x) => x.id !== id)),

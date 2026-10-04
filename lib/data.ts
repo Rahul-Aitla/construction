@@ -1,4 +1,28 @@
-import type { Category, City, Shop, Order, Product, PortalSettings } from "./types";
+import type { Category, City, Shop, Order, Product, PortalSettings, Expense } from "./types";
+
+export const expenseCategories = ["Logistics", "Warehouse Rent", "Salaries", "Fuel", "Packaging", "Utilities", "Miscellaneous"];
+
+export const hsnCodes: Record<string, string> = {
+  Taps: "8481",
+  "Bathroom Accessories": "7324",
+  "Wooden Doors": "4418",
+  Plywood: "4412",
+  Laminates: "4823",
+  "Construction Materials": "7214",
+  Hardware: "8302",
+  Adhesives: "3506",
+};
+
+export const seedExpenses: Expense[] = [
+  { id: "exp-1", date: "2026-07-05", category: "Logistics", vendor: "Sharma Transport Co.", amount: 18500, paymentMode: "Bank Transfer", notes: "Mumbai + Delhi NCR dispatches" },
+  { id: "exp-2", date: "2026-07-10", category: "Warehouse Rent", vendor: "Bhiwandi Godown Trust", amount: 45000, paymentMode: "Bank Transfer", notes: "July rent — Unit 4" },
+  { id: "exp-3", date: "2026-07-15", category: "Salaries", vendor: "Staff Payroll", amount: 120000, paymentMode: "Bank Transfer", notes: "July payroll (9 staff)" },
+  { id: "exp-4", date: "2026-07-18", category: "Fuel", vendor: "HP Petrol Pump, Bhiwandi", amount: 6200, paymentMode: "Cash" },
+  { id: "exp-5", date: "2026-08-03", category: "Packaging", vendor: "Om Packaging Suppliers", amount: 9400, paymentMode: "UPI", notes: "Stretch film + cartons" },
+  { id: "exp-6", date: "2026-08-12", category: "Logistics", vendor: "VRL Logistics", amount: 22000, paymentMode: "Bank Transfer", notes: "Bangalore + Hyderabad lanes" },
+  { id: "exp-7", date: "2026-09-05", category: "Utilities", vendor: "MSEB Electricity", amount: 7800, paymentMode: "UPI" },
+  { id: "exp-8", date: "2026-09-20", category: "Salaries", vendor: "Staff Payroll", amount: 120000, paymentMode: "Bank Transfer", notes: "August payroll (9 staff)" },
+];
 
 export const seedCategories: Category[] = [
   { id: "cat-1", name: "Taps", description: "Brass & Stainless steel mixer taps, pillar cocks, and sensor faucets.", iconName: "Droplet", image: "https://images.unsplash.com/photo-1584622650111-993a426fbf0a?auto=format&fit=crop&w=600&q=80" },
@@ -39,7 +63,7 @@ export const seedOrders: Order[] = [
       { productId: "prod-1", productName: "Jaquar Ceramic Disc Basin Mixer Tap", sku: "JAQ-TAP-801", brand: "Jaquar", category: "Taps", unitPrice: 3450, quantity: 10, totalPrice: 34500, unit: "Box of 2 Pcs" },
       { productId: "prod-6", productName: "Fevicol SH Synthetic Resin Adhesive (50 kg)", sku: "PID-ADH-50K", brand: "Pidilite", category: "Adhesives", unitPrice: 9200, quantity: 2, totalPrice: 18400, unit: "Bucket (50 kg)" },
     ],
-    subtotal: 52900, gstAmount: 9522, grandTotal: 62422, paymentMethod: "Cash on Delivery", status: "Pending", createdAt: "2026-07-28 14:30", estimatedDeliveryDate: "2026-07-30", notes: "Please dispatch morning shift.",
+    subtotal: 52900, gstAmount: 9522, grandTotal: 62422, paymentMethod: "Cash on Delivery", status: "Pending", paidStatus: "Unpaid", createdAt: "2026-07-28 14:30", estimatedDeliveryDate: "2026-07-30", notes: "Please dispatch morning shift.",
   },
   {
     id: "ord-102", orderNumber: "ORD-89238", shopId: "shop-2", shopName: "National Timber & Plywood Depot", ownerName: "Suresh Patel", phone: "+91 98220 11223",
@@ -48,7 +72,7 @@ export const seedOrders: Order[] = [
       { productId: "prod-4", productName: "CenturyPly Club Prime BWP Marine Plywood 19mm", sku: "CEN-PLY-419", brand: "CenturyPly", category: "Plywood", unitPrice: 4600, quantity: 20, totalPrice: 92000, unit: "Sheet (8x4 ft)" },
       { productId: "prod-3", productName: "Greenlam 1mm Textured Suede Laminate Sheet", sku: "GRN-LAM-102", brand: "Greenlam", category: "Laminates", unitPrice: 1850, quantity: 30, totalPrice: 55500, unit: "Sheet (8x4 ft)" },
     ],
-    subtotal: 147500, gstAmount: 26550, grandTotal: 174050, paymentMethod: "Credit Line (Net 30)", status: "Confirmed", createdAt: "2026-07-27 11:15", estimatedDeliveryDate: "2026-07-29",
+    subtotal: 147500, gstAmount: 26550, grandTotal: 174050, paymentMethod: "Credit Line (Net 30)", status: "Confirmed", paidStatus: "Unpaid", dueDate: "2026-08-26", createdAt: "2026-07-27 11:15", estimatedDeliveryDate: "2026-07-29",
   },
   {
     id: "ord-103", orderNumber: "ORD-89220", shopId: "shop-3", shopName: "Royal Bath Fittings & Tiles", ownerName: "Anil Sharma", phone: "+91 98112 33445",
@@ -56,7 +80,7 @@ export const seedOrders: Order[] = [
     items: [
       { productId: "prod-2", productName: "Kohler Artifacts Wall Mount Shower Arm & Head", sku: "KOH-BATH-309", brand: "Kohler", category: "Bathroom Accessories", unitPrice: 8900, quantity: 8, totalPrice: 71200, unit: "Piece" },
     ],
-    subtotal: 71200, gstAmount: 12816, grandTotal: 84016, paymentMethod: "Cash on Delivery", status: "Delivered", createdAt: "2026-07-25 09:45", estimatedDeliveryDate: "2026-07-27",
+    subtotal: 71200, gstAmount: 12816, grandTotal: 84016, paymentMethod: "Cash on Delivery", status: "Delivered", paidStatus: "Paid", createdAt: "2026-07-25 09:45", estimatedDeliveryDate: "2026-07-27",
   },
   {
     id: "ord-104", orderNumber: "ORD-89215", shopId: "shop-4", shopName: "Capital Construction Supplies", ownerName: "Vikas Gupta", phone: "+91 97110 99887",
@@ -64,7 +88,7 @@ export const seedOrders: Order[] = [
     items: [
       { productId: "prod-7", productName: "UltraTech Super Cement 50kg Bags", sku: "ULT-CEM-50", brand: "UltraTech", category: "Construction Materials", unitPrice: 390, quantity: 200, totalPrice: 78000, unit: "Bag (50 kg)" },
     ],
-    subtotal: 78000, gstAmount: 14040, grandTotal: 92040, paymentMethod: "Cash on Delivery", status: "Delivered", createdAt: "2026-07-24 16:20", estimatedDeliveryDate: "2026-07-26",
+    subtotal: 78000, gstAmount: 14040, grandTotal: 92040, paymentMethod: "Cash on Delivery", status: "Delivered", paidStatus: "Paid", createdAt: "2026-07-24 16:20", estimatedDeliveryDate: "2026-07-26",
   },
   {
     id: "ord-105", orderNumber: "ORD-89210", shopId: "shop-5", shopName: "Deccan Interior Hardware", ownerName: "Karthik Reddy", phone: "+91 99001 22334",
@@ -73,7 +97,7 @@ export const seedOrders: Order[] = [
       { productId: "prod-5", productName: "Godrej Stainless Steel Mortise Door Handle Set", sku: "GOD-HW-904", brand: "Godrej", category: "Hardware", unitPrice: 2750, quantity: 15, totalPrice: 41250, unit: "Set of 1 Pair" },
       { productId: "prod-10", productName: 'EBCO Soft Close Ball Bearing Drawer Slides 18"', sku: "EBC-SLD-18", brand: "EBCO", category: "Hardware", unitPrice: 680, quantity: 50, totalPrice: 34000, unit: "Pair" },
     ],
-    subtotal: 75250, gstAmount: 13545, grandTotal: 88795, paymentMethod: "Credit Line (Net 30)", status: "Pending", createdAt: "2026-07-28 17:10", estimatedDeliveryDate: "2026-07-31",
+    subtotal: 75250, gstAmount: 13545, grandTotal: 88795, paymentMethod: "Credit Line (Net 30)", status: "Pending", paidStatus: "Unpaid", dueDate: "2026-08-30", createdAt: "2026-07-28 17:10", estimatedDeliveryDate: "2026-07-31",
   },
 ];
 

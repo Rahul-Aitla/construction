@@ -1,7 +1,10 @@
 "use client";
+import { useState } from "react";
 import Image from "next/image";
-import { DollarSign, TrendingUp, ShoppingCart, Clock, CheckCircle, Store, Building2 } from "lucide-react";
+import { DollarSign, TrendingUp, ShoppingCart, Clock, CheckCircle, Store, Building2, Eye } from "lucide-react";
 import { useAdminData } from "@/components/AdminDataProvider";
+import InvoiceModal from "@/components/InvoiceModal";
+import type { Order } from "@/lib/types";
 
 const products = [
   { rank: "#1", name: "Jaquar Ceramic Disc Basin ...", location: "Jaquar · Stock: 140", price: "₹3,450", img: "https://images.unsplash.com/photo-1552321554-5fefe8c9ef14?w=100&q=80" },
@@ -40,6 +43,7 @@ const inr = (n: number) => `₹${n.toLocaleString("en-IN")}`;
 
 export default function AdminDashboard() {
   const { orders, shops, cities } = useAdminData();
+  const [invoiceOrder, setInvoiceOrder] = useState<Order | null>(null);
   const totalSales = orders.reduce((s, o) => s + o.grandTotal, 0);
   const pendingCount = orders.filter((o) => o.status === "Pending").length;
   const completedCount = orders.filter((o) => o.status === "Delivered").length;
@@ -155,6 +159,7 @@ export default function AdminDashboard() {
                 <th className="px-6 py-3">Date</th>
                 <th className="px-6 py-3">Total Amount</th>
                 <th className="px-6 py-3">Status</th>
+                <th className="px-6 py-3">Action</th>
               </tr>
             </thead>
             <tbody className="divide-y divide-gray-100">
@@ -171,12 +176,19 @@ export default function AdminDashboard() {
                   <td className="px-6 py-4">
                     <span className={`inline-block text-xs font-semibold px-2.5 py-0.5 rounded-full ${statusStyles[o.status]}`}>{o.status}</span>
                   </td>
+                  <td className="px-6 py-4">
+                    <button onClick={() => setInvoiceOrder(o)} className="inline-flex items-center gap-1.5 bg-[#1a1b2f] text-white text-xs px-3 py-1.5 rounded-md hover:bg-[#23233a] transition-colors whitespace-nowrap">
+                      <Eye size={12} /> View Invoice
+                    </button>
+                  </td>
                 </tr>
               ))}
             </tbody>
           </table>
         </div>
       </div>
+
+      {invoiceOrder && <InvoiceModal order={invoiceOrder} onClose={() => setInvoiceOrder(null)} />}
     </div>
   );
 }
